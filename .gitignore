@@ -1,0 +1,15 @@
+# build
+dist/*
+!dist/audio
+!dist/fonts
+!dist/icon.png
+!dist/index.html
+
+# external
+node_modules/
+
+# os
+.DS_Store
+
+# ide
+.vscode/

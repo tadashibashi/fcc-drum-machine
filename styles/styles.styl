@@ -1,0 +1,142 @@
+@require "mixins"
+
+@font-face {
+    font-family: "ds-digital"
+    src: url("./fonts/DS-DIGI.TTF") format('truetype')
+}
+
+$border-color = rgb(185, 185, 185)
+$box-shadow = 1px 1px 1px 1px rgba(128, 128, 128, 0.337)
+
+* 
+    box-sizing: border-box
+    user-select(none)
+
+html, body
+    padding: 0
+    margin: 0
+
+.drum-machine
+    width: 95%
+    max-width: 720px
+    min-width: 300px
+    margin: 10% auto
+    padding: 1.6rem
+    height: auto
+    max-height: 400px
+    overflow: hidden
+
+    display: grid
+    grid-template-columns: 2fr 1fr
+    grid-template-rows: 1fr
+    column-gap: 2rem
+
+    border: 1px solid $border-color
+    border-radius: 4px
+    box-shadow: $box-shadow
+
+    background-color: rgb(246, 246, 246)
+
+.pads
+    height: 100%
+
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    grid-template-rows: 1fr 1fr 1fr 
+    row-gap: .4rem
+    column-gap: .4rem
+
+    font-family: Arial
+
+.drum-pad-wrapper
+    border: 1px $border-color solid
+    border-radius: 4px
+    box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.337)
+    background-color: rgb(223, 223, 223)
+    overflow: hidden
+    height: 100%
+    min-width: 40px
+
+    &:active, &.active
+        background-color: rgb(233, 233, 233)
+        border-color: rgb(234, 234, 234)
+        color: rgb(251, 251, 251)
+        margin: 1px -1px -1px 1px // appears like pressing down pad
+    p
+        text-align: center
+        font-weight: bold
+    .drum-pad-name
+        font-weight: normal
+        font-size: .8rem
+
+
+.controls
+    font-family: Arial
+    h1
+        font-family: monospace
+        font-style: italic
+        font-size: 1.8rem
+        width: 100%
+        .small
+            font-size: 1.2rem
+
+input[type=range]
+    width: 100%
+
+.display
+    width: 75%
+    height: 1.6rem
+
+    margin: 2rem auto
+    padding-top: 2px
+
+    border: 1px $border-color solid
+    border-radius: 1px
+
+    vertical-align: center
+
+    font-family: ds-digital
+    font-size: 1.2rem
+    text-align: center
+
+    background-color: rgb(238, 238, 238)
+
+
+@media (max-width: 750px)
+    .controls
+        h1
+            font-size: 1.6rem
+            .small
+                font-size: 1rem
+        label
+            font-size: .9rem
+        .display
+            font-size: 1rem
+            height: 1.2rem
+
+@media (max-width: 680px)
+    .drum-machine
+        width: 98%
+        padding: .5rem
+        column-gap: 1rem
+    .pads
+        .drum-pad
+            font-size: .9rem
+        
+@media (max-width: 540px)
+    .drum-machine
+        width: 100%
+        padding: .2rem
+        column-gap: .6rem
+        
+    .controls
+        h1 
+            .small
+                display: none
+        label
+            font-size: .8rem
+    .pads
+        p
+            font-size: .8rem
+        .drum-pad-name
+            font-size: .6rem

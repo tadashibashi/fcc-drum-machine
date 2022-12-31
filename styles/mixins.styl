@@ -1,0 +1,58 @@
+user-select(param)
+    -webkit-user-select param
+    -moz-user-select param
+    -ms-user-select param
+    user-select param
+
+appearance(params)
+    -webkit-appearance: params
+    appearance: params
+
+// Tried to style slider, but these don't work, even though several sources say to do it
+range-thumb($border, $border-radius, $height, $width, $background, $margin-top, $box-shadow)
+    &::-webkit-slider-thumb,
+    &::-moz-range-thumb,
+    &::-ms-thumb
+        appearance(none)
+        border: $border
+        height: $height
+        width: $width
+        border-radius: $border-radius
+        background: $background
+        cursor: pointer
+        box-shadow: $box-shadow
+    &::-webkit-slider-thumb
+        margin-top: $margin-top
+
+runnable-track($height, $background, $border, $border-radius, $box-shadow)
+    &::-webkit-slider-runnable-track,
+    &::-moz-range-track
+    &::-ms-track
+        width: 100%
+        height: $height
+        cursor: default
+    &::-webkit-slider-runnable-track,
+    &::-moz-range-track
+        box-shadow: $box-shadow
+        background: $background
+        border: $border
+        border-radius: $border-radius
+
+    &::-ms-track
+        border-width: $height * 2
+        border-color: transparent
+        color: transparent
+
+    &::-ms-fill-upper
+        background: $background
+        border: $border
+        border-radius: $border-radius * 2
+        box-shadow: $box-shadow
+    &::-ms-fill-upper
+        background: $background
+        border: $border
+        border-radius: $border-radius * 2
+        box-shadow: $box-shadow
+
+
+
